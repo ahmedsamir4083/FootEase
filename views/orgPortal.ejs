@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organization Portal</title>
+  <link rel="stylesheet" href="/styles/orgPortal.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container-logo">
+      <img class="logo" src="/images/footease-logo.png" alt="">
+    </div>
+    <ul class="right-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="/addorginfo">Edit Organization Info</a></li>
+      <li><a href="#">Edit Profile</a></li>
+      <li><a href="#">Sign Out</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="opportunity-form">
+      <div>
+        <label for="orgName">Organization Name:</label>
+        <%= organization.orgName %>
+      </div>
+
+      <div>
+        <label for="contactPerson">Contact Person:</label>
+        <%= organization.contactPerson %>
+      </div>
+
+      <div>
+        <label for="orgType">Organization Type:</label>
+        <%= organization.orgType %>
+      </div>
+
+      <div>
+        <label for="footballType">Football Type:</label>
+        <%= organization.footballType %>
+      </div>
+
+      <div>
+        <label for="location">Location:</label>
+        <%= organization.location %>
+      </div>
+
+      <div>
+        <label for="Address">Address:</label>
+        <%= organization.Address %>
+      </div>
+
+      <div>
+        <label for="website">Website:</label>
+        <%= organization.website %>
+      </div>
+
+      <div>
+        <label for="socialMediaLinks">Social Media Links:</label>
+        <%= organization.socialMediaLinks %>
+      </div>
+
+      <div>
+        <label for="description">Description:</label>
+        <%= organization.description %>
+      </div>
+
+      <div>
+        <label for="TypesofFootballOpportunitiesProvided">Types of Football Opportunities Provided:</label>
+        <%= organization.TypesofFootballOpportunitiesProvided %>
+      </div>
+
+      <div>
+        <label for="SkillLevels">Skill Levels Catered To:</label>
+        <%= organization.SkillLevels %>
+      </div>
+
+      <div>
+        <label for="AgeGroups">Age Groups Catered To:</label>
+        <%= organization.AgeGroups %>
+      </div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Your Organization. All rights reserved.</p>
+    </div>
+  </div>
+
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

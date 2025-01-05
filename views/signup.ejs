@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up Page</title>
+  <link rel="stylesheet" href="styles/signup.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+  <div class="message-container">
+    <%= message %>
+  </div>
+
+
+    <div class="container-logo">
+        <img class="logo" src="/images/footease-logo.png" alt="">
+      </div>
+
+     
+  <div class="signup-container">
+    <form class="signup-form" action="/signup" method="POST">
+      <h1>Sign Up</h1>
+      <div class="input-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="input-group">
+        <label for="username">UserName</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+      </div>
+      <button type="submit">Sign Up</button>
+      <p class="alternative-link">Already have an account? <a href="#">Login</a></p>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer content goes here -->
+      <p>&copy; 2024 FOOTEASE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

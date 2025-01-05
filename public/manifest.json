@@ -1,0 +1,21 @@
+{
+    "name": "FOOTEASE",
+    "short_name": "FOOTEASE",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3367D6",
+    "icons": [
+      {
+        "src": "/images/footease-logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/footease-logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  

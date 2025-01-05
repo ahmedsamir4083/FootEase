@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Events Calendar</title>
+  <link rel="stylesheet" href="styles/events.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <!-- <h1>Footease</h1> -->
+      <h1><img src="/images/footease-logo.png" alt="Footease Logo"></h1>
+
+      <ul class="left-menu">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/find">Find a Match</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+      <ul class="right-menu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Sign Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Upcoming Events Container -->
+  <div class="upcoming-events-container">
+    <h2>Upcoming Events</h2>
+    <div class="event-list">
+      <% events.forEach(event => { %>
+        <div class="event-box">
+          <h3><%= event.eventName %></h3>
+          <p>Date: <%= event.date %></p>
+          <p>Address: <%= event.location %></p>
+          <p>Fees: <%= event.Fees %></p>
+          
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Your Organization. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="styles/events.js"></script>
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

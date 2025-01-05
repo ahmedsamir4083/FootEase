@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="styles/login.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+  <div class="message-container">
+    <%= message %>
+  </div>
+  <div class="container-logo">
+    <img class="logo" src="/images/footease-logo.png" alt="">
+  </div>
+  <div class="login-container">
+    <form class="login-form" action="/login" method="POST">
+      <h1>Login</h1>
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username"  required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+      <p class="alternative-link">Do you present an Organization <a href="/orglogin">Sign Up</a></p>
+      <p class="alternative-link">Don't have an account? <a href="/signup">Sign Up</a></p>
+    </form>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer content goes here -->
+      <p>&copy; 2024 FOOTEASE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

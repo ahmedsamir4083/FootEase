@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Match Events</title>
+  <link rel="stylesheet" href="styles/find.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <!-- <h1>Footease</h1> -->
+      <h1><img src="/images/footease-logo.png" alt="Footease Logo"></h1>
+
+      <ul class="left-menu">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/find">Find a Match</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+      <ul class="right-menu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Sign Out</a></li>
+      </ul>
+    </div>
+  </nav>
+      
+  <div class="matches-container">
+    <div class="section-wrapper">
+      <div class="create-match">
+        <h2>Create a New Match Event</h2>
+
+        <form id="create-match-form" action="/find" method="POST">
+          
+          <label for="eventName">Event Name:</label>
+          <input type="text" id="eventName" name="eventName" placeholder="Enter event name" required>
+
+
+          <label for="footballType">footballType:</label>
+          <select id="footballType" name="footballType">
+            <option value="">Any</option>
+            <option value="Blind">blind Football</option>
+            <option value="Partially Blind">partially Blind</option>
+            <option value="Deaf">deaf Football</option>
+            <option value="Cerebral Palsy">cerebral Palsy</option>
+            <option value="Amputee">amputee Football</option>
+            <option value="Learning Disability">learning Disability Football</option>
+            <option value="Powerchair">powerchair Football</option>
+          </select>
+    
+
+          <label for="location">Location:</label>
+          <input type="text" id="location" name="location" placeholder="Enter event location" required>
+
+          <label for="Fees">Fees:</label>
+          <input type="number" id="Fees" name="Fees" placeholder="Enter event fees" required>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" placeholder="Enter event date" required> 
+
+          <button type="submit">Create Event</button>
+        </form>
+      </div>
+
+      <div class="filter-matches">
+        <h2>Filter Match Events</h2>
+          <label for="footballType">footballType:</label>
+      <select id="footballType" name="footballType">
+        <option value="">Any</option>
+        <option value="Blind">blind Football</option>
+        <option value="Partially Blind">partially Blind</option>
+        <option value="Deaf">deaf Football</option>
+        <option value="Cerebral Palsy">cerebral Palsy</option>
+        <option value="Amputee">amputee Football</option>
+        <option value="Learning Disability">learning Disability Football</option>
+        <option value="Powerchair">powerchair Football</option>
+      </select>
+
+      </div>
+    </div>
+
+    <div class="matches-section">
+      <h2>Match Events</h2>
+
+      <% events.forEach(event => { %>
+        <div class="matches-section">
+          <h2>Match Events</h2>
+      
+          <label for="eventName">Event Name:</label>
+          <h4><%= event.eventName %></h4>
+      
+          <label for="footballType">Football Type:</label>
+          <h4><%= event.footballType %></h4>
+      
+          <label for="location">Location:</label>
+          <h4><%= event.location %></h4>
+      
+          <label for="Fees">Fees:</label>
+          <h4><%= event.Fees %></h4>
+      
+          <label for="date">Date:</label>
+          <h4><%= event.date %></h4>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

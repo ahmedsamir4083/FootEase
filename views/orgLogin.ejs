@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organization Sign In</title>
+  <link rel="stylesheet" href="styles/orgLogin.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container-logo">
+        <img class="logo" src="/images/footease-logo.png" alt="">
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container">
+    <section class="signin-container">
+      <h2>Organization Sign In</h2>
+      <form action="/orglogin" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Sign In</button>
+      </form>
+
+      <p>Don't have an account? <a href="/orgsignup">Sign Up</a></p>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Your Organization. All rights reserved.</p>
+    </div>
+  </div>
+
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

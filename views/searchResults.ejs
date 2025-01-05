@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <style>
+   body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* Navigation Bar Styling */
+nav {
+  background-color: #333;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 24px 20px;
+}
+
+nav h1 {
+  font-size: 24px;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+}
+
+ul.left-menu {
+  margin-right: auto;
+}
+
+ul.right-menu {
+  margin-left: auto;
+}
+
+li {
+  margin: 0 15px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #555;
+}
+
+h1 img {
+  width: 65px;
+  height: auto;
+}
+
+
+    .result-container {
+      width: 80%;
+      max-width: 1200px;
+    }
+
+    .result-box {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 20px;
+      transition: transform 0.3s ease;
+    }
+
+    .result-box:hover {
+      transform: scale(1.02);
+    }
+
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    .result-info {
+      margin-bottom: 10px;
+      color: #555;
+    }
+
+    h3 {
+      margin: 0;
+      color: #333;
+    }
+
+    .result-box h3 {
+      font-size: 18px;
+    }
+
+    .result-box .label {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+    <a href="/search" style="text-decoration: none; color: #333; margin-bottom: 20px; display: block;">
+        &larr; Back to Search
+      </a>
+
+  <div class="result-container">
+    <% result.forEach(res => { %>
+      <div class="result-box">
+        <div class="result-info">
+          <div class="label">Organization Name:</div>
+          <h3><%= res.orgName %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Location:</div>
+          <h3><%= res.location %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Football Type:</div>
+          <h3><%= res.footballType %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Opportunities Provided:</div>
+          <h3><%= res.TypesofFootballOpportunitiesProvided %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Address:</div>
+          <h3><%= res.Address %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Website:</div>
+          <h3><%= res.website %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Social Media Links:</div>
+          <h3><%= res.socialMediaLinks %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Description:</div>
+          <h3><%= res.description %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Skill Levels:</div>
+          <h3><%= res.SkillLevels %></h3>
+        </div>
+
+        <div class="result-info">
+          <div class="label">Age Groups:</div>
+          <h3><%= res.AgeGroups %></h3>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+
+</body>
+</html>

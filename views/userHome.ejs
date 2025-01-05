@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ... (head content) ... -->
+  <link rel="stylesheet" href="../styles/home.css"> 
+  <link rel="manifest" href="/manifest.json">
+  
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <!-- <h1>Footease</h1> -->
+      <h1><img src="/images/footease-logo.png" alt="Footease Logo"></h1>
+
+      <ul class="left-menu">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/find">Find a Match</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+      <ul class="right-menu">
+        <li><a href="/profile/<%= user._id %>">Profile</a></li>
+        <li><a href="/logout">Sign Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="hero">
+  </div>
+  
+
+  <div class="container">
+    <section class="features">
+      <h3>Key Features</h3>
+      <div class="feature">
+        <img src="/images/search.png" alt="Feature 1">
+        <p>Advanced search options</p>
+      </div>
+      <div class="feature">
+        <img src="/images/football.png" alt="Feature 2">
+        <p>Matchmaking based on interests</p>
+      </div>
+      <div class="feature">
+        <img src="/images/calendar.png" alt="Feature 3">
+        <p>Upcoming events and gatherings</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="container">
+    <section class="about-us">
+      <h3>About Us</h3>
+      <p>Welcome to our PWA dedicated to empowering disability footballers! We are committed to providing a platform that facilitates access to football opportunities, fosters development, and enhances the enjoyment of the beautiful game for individuals with disabilities. Our mission is to raise awareness and ensure that everyone in the disability football community stays informed about upcoming events, creating a vibrant and inclusive space for the love of the game.</p>
+      <!-- Add your content for the About Us section -->
+    </section>
+  </div>
+
+
+
+  <footer class="site-footer">
+    <div class="container">
+      <!-- Footer content goes here -->
+      <p>&copy; 2024 FOOTEASE. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

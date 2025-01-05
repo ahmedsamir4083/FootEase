@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Information</title>
+  <link rel="stylesheet" href="styles/addOrgInfo.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container-logo">
+      <img class="logo" src="/images/footease-logo.png" alt="">
+    </div>
+    <ul class="right-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="/addorginfo">Edit Organization Info</a></li>
+      <li><a href="#">Edit Profile</a></li>
+      <li><a href="#">Sign Out</a></li>
+    </ul>
+  </nav>
+  <!-- Main Content -->
+  <div class="container">
+    <section class="football-info-form">
+      <h2>Football Information</h2>
+      <form>
+        <label for="Brief">Brief about the club:</label>
+        <textarea id="Brief" name="Brief" rows="4" required></textarea>
+
+  
+        <label for="footballType">Football Type Provided:</label>
+        <div class="checkbox-group">
+          <input type="checkbox" id="blind" name="footballType" value="Blind">
+          <label for="blind">Blind football</label>
+          
+          <input type="checkbox" id="partiallyBlind" name="footballType" value="Partially Blind">
+          <label for="partiallyBlind">Partially blind football</label>
+          
+          <input type="checkbox" id="deaf" name="footballType" value="Deaf">
+          <label for="deaf">Deaf football</label>
+  
+          <input type="checkbox" id="cerebralPalsy" name="footballType" value="Cerebral Palsy">
+          <label for="cerebralPalsy">Cerebral palsy football</label>
+  
+          <input type="checkbox" id="amputee" name="footballType" value="Amputee">
+          <label for="amputee">Amputee-football</label>
+  
+          <input type="checkbox" id="learningDisability" name="footballType" value="Learning Disability">
+          <label for="learningDisability">Learning disability football</label>
+  
+          <input type="checkbox" id="powerchair" name="footballType" value="Powerchair">
+          <label for="powerchair">Powerchair football</label>
+        </div>
+
+        <label for="facilities">Club ground facilities:</label>
+        <input type="text" id="facilities" name="facilities" required>
+
+        <label for="ClubContact">Club Contact:</label>
+        <input type="text" id="ClubContact" name="ClubContact" required>
+
+        <label for="Address">Address:</label>
+        <input type="text" id="Address" name="Address" required>
+
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 Your Organization. All rights reserved.</p>
+    </div>
+  </div>
+
+
+  
+</body>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+
+</html>

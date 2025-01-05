@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Opportunities</title>
+  <link rel="stylesheet" href="styles/search.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <!-- <h1>Footease</h1> -->
+      <h1><img src="/images/footease-logo.png" alt="Footease Logo"></h1>
+
+      <ul class="left-menu">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/find">Find a Match</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+      <ul class="right-menu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Sign Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="search-container">
+    <div class="filters">
+
+      <form action="/search" method="POST">
+
+        <label for="location">Location:</label>
+<select id="location" name="location">
+  <option value="">Select a city</option>
+</select>
+          <!-- Add more cities here -->
+        </select>
+
+      <label for="footballType">footballType:</label>
+      <select id="footballType" name="footballType">
+        <option value="">Any</option>
+        <option value="Blind">blind Football</option>
+        <option value="Partially Blind">partially Blind</option>
+        <option value="Deaf">deaf Football</option>
+        <option value="Cerebral Palsy">cerebral Palsy</option>
+        <option value="Amputee">amputee Football</option>
+        <option value="Learning Disability">learning Disability Football</option>
+        <option value="Powerchair">powerchair Football</option>
+      </select>
+
+      <label for="TypesofFootballOpportunitiesProvided">Types of Football Opportunities Provided:</label>
+      <select id="TypesofFootballOpportunitiesProvided" name="TypesofFootballOpportunitiesProvided">
+        <option value="">Any</option>
+        <option value="matches">matches</option>
+        <option value="tournaments">tournaments</option>
+        <option value="trainingSessions">trainingSessions</option>
+      </select>
+
+
+      <label for="AgeGroups">Age Groups:</label>
+      <select id="AgeGroups" name="AgeGroups">
+        <option value="">Any</option>
+        <option value="youth">youth</option>
+        <option value="adults">adults</option>
+        <option value="seniors">seniors</option>
+      </select>
+
+
+      <label for="level">Level of Play:</label>
+      <select id="level" name="level">
+        <option value="">Any</option>
+        <option value="beginner">Beginner</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+      </select>
+
+      <button>Search</button>
+      </form>
+
+    
+
+
+    </div>
+
+    <div class="search-results">
+      <!-- Search results will be displayed here -->
+      <!-- Use JavaScript to populate this section with search results -->
+    </div>
+  </div>
+
+  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+
+<!-- <script>
+    function searchOpportunities() {
+  // Get values from filters
+  const location = document.getElementById('location').value;
+  const facilities = document.getElementById('facilities').value;
+  const level = document.getElementById('level').value;
+
+  // Perform search based on filters (this is just an example)
+  // Send AJAX request to server or manipulate DOM with search results
+  // Update the 'search-results' section with the fetched or filtered results
+  const searchResults = [
+    { name: 'Opportunity 1', location: 'City A', facilities: ['Wheelchair Accessible'], level: 'Intermediate' },
+    { name: 'Opportunity 2', location: 'City B', facilities: ['Adaptive Equipment'], level: 'Beginner' },
+    // Add more search results as needed
+  ];
+
+  displaySearchResults(searchResults);
+}
+
+function displaySearchResults(results) {
+  const searchResultsContainer = document.querySelector('.search-results');
+  searchResultsContainer.innerHTML = ''; // Clear previous results
+
+  results.forEach(result => {
+    const resultElement = document.createElement('div');
+    resultElement.classList.add('search-result');
+
+    resultElement.innerHTML = `
+      <h3>${result.name}</h3>
+      <p><strong>Location:</strong> ${result.location}</p>
+      <p><strong>Facilities:</strong> ${result.facilities.join(', ')}</p>
+      <p><strong>Level of Play:</strong> ${result.level}</p>
+      Display more details as needed
+
+      <hr>
+    `;
+
+    searchResultsContainer.appendChild(resultElement);
+  });
+} -->
+
+<!-- </script> -->
+
+<script>
+    const cities = ['london', 'manchester'];
+  
+    const locationDropdown = document.getElementById('location');
+  
+    cities.forEach(city => {
+      const option = document.createElement('option');
+      option.value = city;
+      option.textContent = city;
+      locationDropdown.appendChild(option);
+    });
+  </script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile</title>
+  <link rel="stylesheet" href="../styles/profile.css"> <!-- Link to your CSS file -->
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <!-- <h1>Footease</h1> -->
+      <h1><img src="../images/footease-logo.png" alt="Footease Logo"></h1>
+
+      <ul class="left-menu">
+        <li><a href="/search">Search</a></li>
+        <li><a href="/find">Find a Match</a></li>
+        <li><a href="/events">Events</a></li>
+      </ul>
+      <ul class="right-menu">
+        <li><a href="/profile">Profile</a></li>
+        <li><a href="/logout">Sign Out</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="profile-container">
+    <div class="profile-info">
+      <div class="profile-picture">
+        <!-- Add an image tag for the profile picture -->
+        <img src="../images/profile.jpg" alt="Profile Picture">
+      </div>
+      <div class="profile-picture-change">
+        <button class="change-picture-btn">Change Picture</button>
+      </div>
+      <div class="user-details">
+        <h2>Name: <%= user.fullname %></h2>
+        <p>Email: <%= user.email %></p>
+        <p>Username: <%= user.username %></p>
+      </div>
+    </div>
+    <div class="change-data">
+      <h2>Change Details</h2>
+      <form action="/changedata/<%= user._id %>" method="POST">
+        <label for="Name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="username">New Password:</label>
+        <input type="password" id="username" name="username" required>
+
+        <button type="submit">Update Password</button>
+      </form>
+    </div>
+  </div>
+
+
+</body>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        })
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+    });
+  }
+</script>
+</html>
